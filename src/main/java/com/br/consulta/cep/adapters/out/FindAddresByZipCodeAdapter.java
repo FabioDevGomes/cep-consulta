@@ -17,14 +17,10 @@ public class FindAddresByZipCodeAdapter implements FindAddresByZipCodeOutputPort
     @Autowired
     private AddressResponseMapper addressResponseMapper;
 
-//    public FindAddresByZipCodeAdapter(FindAddresByZipCodeClient findAddresByZipCodeClient, AddressResponseMapper addressResponseMapper) {
-//        this.findAddresByZipCodeClient = findAddresByZipCodeClient;
-//        this.addressResponseMapper = addressResponseMapper;
-//    }
-
     @Override
     public Address find(String zipCode) {
         AddressResponse addressResponse = findAddressByZipCodeClient.find(zipCode);
-        return addressResponseMapper.toAddress(addressResponse);
+//        return addressResponseMapper.toAddress(addressResponse);
+        return null;
     }
 }

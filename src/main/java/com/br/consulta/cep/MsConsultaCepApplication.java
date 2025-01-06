@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableFeignClients
+//@ComponentScan(basePackages = "com.br.consulta.cep.adapters.out.client.repository")
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.br.consulta.cep.adapters.out.client.mapper"})
 public class MsConsultaCepApplication {
 
 	public static void main(String[] args) {
@@ -15,3 +15,4 @@ public class MsConsultaCepApplication {
 	}
 
 }
+
