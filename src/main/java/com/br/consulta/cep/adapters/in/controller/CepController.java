@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class CepController implements CepSearchApi{
+public class CepController implements SearchApi{
 
     @Autowired
     private FindAddressInputPort findAddressInputPort;
 
     @Override
-    public ResponseEntity<AddressResponse> cepSearchCepGet(String cep) {
+    public ResponseEntity<AddressResponse> searchCepGet(String cep) {
 
         findAddressInputPort.find(cep);
 

@@ -23,7 +23,7 @@ public class FindAddressUseCase implements FindAddressInputPort {
         LogPersist log = new LogPersist();
         //preencher objeto
 
-        persistLogOutpudPort.insert(log);
+//        persistLogOutpudPort.insert(log);
 
         return address;
     }
