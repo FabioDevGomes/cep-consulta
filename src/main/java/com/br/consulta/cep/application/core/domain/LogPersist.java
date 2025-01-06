@@ -6,9 +6,7 @@ import java.time.LocalDateTime;
 public class LogPersist {
 
     private String id;
-
     private LocalDateTime horaConsulta;
-
     private String retornoApi;
 
     public String getRetornoApi() {

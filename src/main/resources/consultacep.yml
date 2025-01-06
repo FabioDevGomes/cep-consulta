@@ -21,13 +21,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/EddressResponse"
+                $ref: "#/components/schemas/AddressResponse"
 components:
   schemas:
-    EddressResponse:
+    AddressResponse:
       type: object
       properties:
-        Street:
+        street:
           type: string
         district:
           type: string
