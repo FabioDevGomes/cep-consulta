@@ -8,6 +8,8 @@ import com.br.consulta.cep.application.ports.out.client.FindAddresByZipCodeOutpu
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class FindAddresByZipCodeAdapter implements FindAddresByZipCodeOutputPort {
 
@@ -17,14 +19,11 @@ public class FindAddresByZipCodeAdapter implements FindAddresByZipCodeOutputPort
     @Autowired
     private AddressResponseMapper addressResponseMapper;
 
-//    public FindAddresByZipCodeAdapter(FindAddresByZipCodeClient findAddresByZipCodeClient, AddressResponseMapper addressResponseMapper) {
-//        this.findAddresByZipCodeClient = findAddresByZipCodeClient;
-//        this.addressResponseMapper = addressResponseMapper;
-//    }
-
     @Override
-    public Address find(String zipCode) {
+    public Optional<Address> find(String zipCode) {
         AddressResponse addressResponse = findAddressByZipCodeClient.find(zipCode);
-        return addressResponseMapper.toAddress(addressResponse);
+        Optional<Address> opt = Optional.ofNullable(addressResponseMapper.toAddress(addressResponse));
+
+        return opt;
     }
 }

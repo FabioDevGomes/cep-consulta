@@ -18,7 +18,7 @@ public class FindAddressUseCase implements FindAddressInputPort {
 
     @Override
     public Address find(String zipCode){
-        Address address = addressOutputPort.find(zipCode);
+        Address address = addressOutputPort.find(zipCode).orElseThrow(() -> new RuntimeException("CEP not found"));
 
         LogPersist log = new LogPersist();
         //preencher objeto

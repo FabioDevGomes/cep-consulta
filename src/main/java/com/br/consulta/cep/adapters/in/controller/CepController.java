@@ -20,6 +20,7 @@ public class CepController implements CepSearchApi{
     public ResponseEntity<AddressResponse> cepSearchCepGet(String cep) {
 
         findAddressInputPort.find(cep);
+//        AddressResponse response = findAddressInputPort.find(cep);
 
         return new ResponseEntity<>(new AddressResponse(), HttpStatus.OK);
     }
