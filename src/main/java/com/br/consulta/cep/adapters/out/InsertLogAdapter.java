@@ -19,6 +19,6 @@ public class InsertLogAdapter implements PersistLogOutpudPort {
 
     @Override
     public void insert(LogPersist logPersist) {
-        logRepository.insert(logEntityMapper.toEntity(logPersist));
+//        logRepository.insert(logEntityMapper.toEntity(logPersist));
     }
 }
