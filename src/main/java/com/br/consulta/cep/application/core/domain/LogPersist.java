@@ -8,6 +8,7 @@ public class LogPersist {
     private String id;
     private LocalDateTime horaConsulta;
     private String retornoApi;
+    private Address address;
 
     public String getRetornoApi() {
         return retornoApi;
@@ -31,5 +32,13 @@ public class LogPersist {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

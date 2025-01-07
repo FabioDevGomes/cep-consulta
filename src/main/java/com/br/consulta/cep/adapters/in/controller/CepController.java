@@ -1,6 +1,7 @@
 package com.br.consulta.cep.adapters.in.controller;
 
 
+import com.br.consulta.cep.adapters.out.client.mapper.AddressResponseMapper;
 import com.br.consulta.cep.application.ports.in.FindAddressInputPort;
 import org.openapitools.model.AddressResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,13 @@ public class CepController implements SearchApi{
     @Autowired
     private FindAddressInputPort findAddressInputPort;
 
+    @Autowired
+    private AddressResponseMapper mapper;
+
     @Override
     public ResponseEntity<AddressResponse> searchCepGet(String cep) {
+        AddressResponse response = mapper.toAddressResponse(findAddressInputPort.find(cep));
 
-        findAddressInputPort.find(cep);
-//        AddressResponse response = findAddressInputPort.find(cep);
-
-        return new ResponseEntity<>(new AddressResponse(), HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

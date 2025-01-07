@@ -22,8 +22,8 @@ public class FindAddresByZipCodeAdapter implements FindAddresByZipCodeOutputPort
     @Override
     public Optional<Address> find(String zipCode) {
         AddressResponse addressResponse = findAddressByZipCodeClient.find(zipCode);
-        Optional<Address> opt = Optional.ofNullable(addressResponseMapper.toAddress(addressResponse));
+        Optional<Address> address = Optional.ofNullable(addressResponseMapper.toAddress(addressResponse));
 
-        return opt;
+        return address;
     }
 }

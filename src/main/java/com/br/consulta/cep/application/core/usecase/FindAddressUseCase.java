@@ -6,6 +6,8 @@ import com.br.consulta.cep.application.ports.in.FindAddressInputPort;
 import com.br.consulta.cep.application.ports.out.client.FindAddresByZipCodeOutputPort;
 import com.br.consulta.cep.application.ports.out.repository.PersistLogOutpudPort;
 
+import java.time.LocalDateTime;
+
 public class FindAddressUseCase implements FindAddressInputPort {
 
     private FindAddresByZipCodeOutputPort addressOutputPort;
@@ -21,9 +23,10 @@ public class FindAddressUseCase implements FindAddressInputPort {
         Address address = addressOutputPort.find(zipCode).orElseThrow(() -> new RuntimeException("CEP not found"));
 
         LogPersist log = new LogPersist();
-        //preencher objeto
+        log.setHoraConsulta(LocalDateTime.now());
+        log.setAddress(address);
 
-//        persistLogOutpudPort.insert(log);
+        persistLogOutpudPort.insert(log);
 
         return address;
     }
