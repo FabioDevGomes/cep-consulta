@@ -1,27 +1,29 @@
 openapi: "3.0.0"
 info:
-  title: Sample API
-  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  title: Address API
+  description: Consult address by zip code.
   version: 0.1.9
 paths:
-  /search/{cep}:
+  /search/{zipcode}:
     get:
       summary: Returns address by on zip code.
       description: Returns address by on zip code.
       parameters:
         - in: path
-          name: cep
+          name: zipcode
           schema:
             type: string
           required: true
-          description: Numeric ID of the user to get
+          description: Numeric zip code
       responses:
-        "200": # status code
-          description: A JSON array of user names
+        "200":
+          description: A JSON array of address
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/AddressResponse"
+        404:
+          description: A address with the specified zipcode was not found.
 components:
   schemas:
     AddressResponse:

@@ -21,6 +21,12 @@ public class FindAddresByZipCodeAdapter implements FindAddresByZipCodeOutputPort
 
     @Override
     public Optional<Address> find(String zipCode) {
+        //circuit breaker
+        //fallbackAfterRetry
+        //minimum-number-of-calls
+        //max-attempts
+        //wait-duration
+
         AddressResponse addressResponse = findAddressByZipCodeClient.find(zipCode);
         Optional<Address> address = Optional.ofNullable(addressResponseMapper.toAddress(addressResponse));
 

@@ -21,8 +21,8 @@ public class CepController implements SearchApi{
     private AddressResponseMapper mapper;
 
     @Override
-    public ResponseEntity<AddressResponse> searchCepGet(String cep) {
-        AddressResponse response = mapper.toAddressResponse(findAddressInputPort.find(cep));
+    public ResponseEntity<AddressResponse> searchZipcodeGet(String zipcode) {
+        AddressResponse response = mapper.toAddressResponse(findAddressInputPort.find(zipcode));
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
